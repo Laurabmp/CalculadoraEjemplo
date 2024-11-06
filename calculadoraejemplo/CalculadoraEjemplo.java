@@ -76,6 +76,30 @@ public class CalculadoraEjemplo {
     }
 
     /**
+     * Calcula la potencia de operando1 elevado a operando2.
+     * 
+     * @return El resultado de elevar operando1 a la potencia de operando2.
+     */
+    public double potencia() {
+        resultado = Math.pow(operando1, operando2);
+        return resultado;
+    }
+
+    /**
+     * Calcula la raíz cuadrada de operando1.
+     * 
+     * @return La raíz cuadrada de operando1.
+     * @throws ArithmeticException Si operando1 es negativo.
+     */
+    public double raizCuadrada() throws ArithmeticException {
+        if (operando1 < 0) {
+            throw new ArithmeticException("Raíz cuadrada de un número negativo no permitida.");
+        }
+        resultado = Math.sqrt(operando1);
+        return resultado;
+    }
+
+    /**
      * Método principal que crea objetos de CalculadoraEjemplo y prueba cada método.
      * 
      * @param args Los argumentos de la línea de comandos.
@@ -87,5 +111,10 @@ public class CalculadoraEjemplo {
         System.out.println("Resta: " + calc.restar());
         System.out.println("Multiplicación: " + calc.multiplicar());
         System.out.println("División: " + calc.dividir());
+        System.out.println("Potencia: " + calc.potencia());
+        
+        // Cambiar operando1 para probar la raíz cuadrada
+        calc.operando1 = 16;
+        System.out.println("Raíz cuadrada de " + calc.operando1 + ": " + calc.raizCuadrada());
     }
 }
